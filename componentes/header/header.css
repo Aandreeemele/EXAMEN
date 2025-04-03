@@ -1,0 +1,13 @@
+#header{
+    width: 480px;
+    border-radius: 15px;
+    height: 4rem;
+    border: 1px solid black;
+    
+}        
+#apa-div{
+    width: 480px;
+    border-radius: 15px;
+    height: 25rem;
+    border: 1px solid black;
+}
