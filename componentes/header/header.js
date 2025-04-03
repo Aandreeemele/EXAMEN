@@ -1,9 +1,8 @@
-import { dataCruz, dataCheck, cargar } from "../data.js";
-
-function cargarMenu() {
-    cargar(); 
-    const header = document.getElementById("header");
-    header.innerHTML = `<h4>Total X = ${dataCruz.length}</h4> <h4>Total / = ${dataCheck.length}</h4>`;
+export function cargarMenu() {
+    const header = document.createElement("header");
+    header.innerHTML = `
+        <h2 id="totalX">Total X = 0</h2>
+        <h2 id="totalCheck">Total / = 0</h2>
+    `;
+    document.body.prepend(header);
 }
-
-export { cargarMenu };

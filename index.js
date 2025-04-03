@@ -1,8 +1,9 @@
-import { cargarBloque } from "./componentes/bloques/bloques.js";
 import { cargarMenu } from "./componentes/header/header.js";
+import { cargarBloques } from "./componentes/bloques/bloques.js";
 
-console.log("Cargando DOM...");
-document.addEventListener("DOMContentLoaded", () => {
-    cargarMenu();
-    cargarBloque();
-});
+function cargarDOM() {
+    cargarMenu();  
+    cargarBloques();  
+}
+
+document.addEventListener("DOMContentLoaded", cargarDOM);

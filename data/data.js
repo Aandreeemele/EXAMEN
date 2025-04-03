@@ -1,17 +1,8 @@
-let dataCruz = ["X"];
-let dataCheck = ["/"];
-
-function guardar() {
+export let dataCruz = [];
+export let dataCheck = [];
+import { cargarMenu } from "../componentes/header/header.js";
+export function cargarmenu(){
     localStorage.setItem("dataCruz", JSON.stringify(dataCruz));
     localStorage.setItem("dataCheck", JSON.stringify(dataCheck));
+    cargarMenu();
 }
-
-function cargar() {
-    const cruz = localStorage.getItem("dataCruz");
-    const check = localStorage.getItem("dataCheck");
-
-    if (cruz) dataCruz = JSON.parse(cruz);
-    if (check) dataCheck = JSON.parse(check);
-}
-
-export { dataCruz, dataCheck, guardar, cargar };

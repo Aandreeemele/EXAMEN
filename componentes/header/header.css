@@ -1,13 +1,15 @@
-#header{
-    width: 480px;
-    border-radius: 15px;
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 35rem;
+    margin: 0;
+    background-color: #f4f4f4;
+
+}
+header{
+    border: 1px solid black;
+    width: 2rem;
     height: 4rem;
-    border: 1px solid black;
-    
-}        
-#apa-div{
-    width: 480px;
-    border-radius: 15px;
-    height: 25rem;
-    border: 1px solid black;
 }

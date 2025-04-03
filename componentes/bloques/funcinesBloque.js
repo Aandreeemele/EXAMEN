@@ -1,23 +1,32 @@
-import { dataCruz, dataCheck, guardar } from "../data.js";
-import { cargarMenu } from "../header/header.js";
+let dataCruz = localStorage.getItem("dataCruz") ? JSON.parse(localStorage.getItem("dataCruz")) : [];
+let dataCheck = localStorage.getItem("dataCheck") ? JSON.parse(localStorage.getItem("dataCheck")) : [];
 
-function agregarCruz(index) {
-    dataCruz.push("X");
-    eliminarBloque(index);
+function actualizarLocalStorage() {
+    localStorage.setItem("dataCruz", JSON.stringify(dataCruz));
+    localStorage.setItem("dataCheck", JSON.stringify(dataCheck));
+    actualizarHeader();
 }
 
-function agregarCheck(index) {
-    dataCheck.push("/");
-    eliminarBloque(index);
-}
+function actualizarHeader() {
+    const totalXElement = document.getElementById("totalX");
+    const totalCheckElement = document.getElementById("totalCheck");
 
-function eliminarBloque(index) {
-    const bloques = document.querySelectorAll(".bloque");
-    if (bloques[index]) {
-        bloques[index].remove();
+    if (totalXElement && totalCheckElement) {
+        totalXElement.textContent = `Total X = ${dataCruz.length}`;
+        totalCheckElement.textContent = `Total / = ${dataCheck.length}`;
     }
-    cargarMenu();
-    guardar();
 }
 
-export { agregarCruz, agregarCheck, eliminarBloque };
+export function agregarCruz(div) {
+    dataCruz.push("X");
+    actualizarLocalStorage();
+    div.remove();
+}
+
+export function agregarCheck(div) {
+    dataCheck.push("/");
+    actualizarLocalStorage();
+    div.remove();
+}
+
+document.addEventListener("DOMContentLoaded", actualizarHeader);
